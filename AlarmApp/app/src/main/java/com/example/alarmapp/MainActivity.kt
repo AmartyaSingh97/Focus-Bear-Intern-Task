@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AlarmReceiver::class.java)
             time += 5
             pendingIntent = PendingIntent.getBroadcast(this, temp, intent, 0)
-            alarmManager?.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + time * 60000, pendingIntent)
+            alarmManager?.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + time * 60000, pendingIntent)
             list.add(pendingIntent!!)
             temp++
             Log.d("Alarm","Total $temp alarms")
